@@ -14,8 +14,21 @@ const LibraryBookList = (props) => {
     // newDatabase.splice(index, 1);
 
     // setDatabase(newDatabase);
-    const newDatabase=database.filter((bookdata)=>bookdata.id!==bookdataId)
-    setDatabase(newDatabase)
+    // const newDatabase=database.filter((bookdata)=>bookdata.id!==bookdataId)
+    // setDatabase(newDatabase)
+    fetch(
+      "https://librarymanagement-70ab2-default-rtdb.firebaseio.com/database/" +
+        bookdataId +
+        ".json",
+      {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then(() => window.location.reload());
   };
 
   return (
