@@ -3,19 +3,10 @@ import LibraryBook from "./LibraryBook";
 import classes from "./LibraryBookList.module.css";
 const LibraryBookList = (props) => {
   const [database, setDatabase] = useState(props.database);
-  console.log('database',database)
+  console.log("database", database);
   console.log("props", props);
 
   const deleteHandler = (bookdataId) => {
-    // const newDatabase = [...database];
-
-    // const index = database.findIndex((bookdata) => bookdata.id === bookdataId);
-
-    // newDatabase.splice(index, 1);
-
-    // setDatabase(newDatabase);
-    // const newDatabase=database.filter((bookdata)=>bookdata.id!==bookdataId)
-    // setDatabase(newDatabase)
     fetch(
       "https://librarymanagement-70ab2-default-rtdb.firebaseio.com/database/" +
         bookdataId +
